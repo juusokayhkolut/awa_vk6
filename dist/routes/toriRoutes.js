@@ -8,5 +8,5 @@ const multer_1 = require("../middleware/multer");
 const toriController_1 = require("../controllers/toriController");
 const router = express_1.default.Router();
 router.post("/upload", multer_1.upload.single("image"), toriController_1.uploadOffer);
-router.get("/get", toriController_1.getOffers);
+router.get("/offers", toriController_1.getOffers);
 exports.default = router;
