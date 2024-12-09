@@ -37,7 +37,7 @@ document.getElementById("offerForm").addEventListener("submit", async (event) =>
 
 async function fetchAndDisplayOffers() {
   console.log("Loading offers")
-  const response = await fetch("/get");
+  const response = await fetch("/offers");
   const offers = await response.json();
 
   if (response.ok) {
