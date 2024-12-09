@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Offers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        form {
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, textarea, button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #offersContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .offerDiv {
+            flex: 1 1 calc(33.333% - 20px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            padding: 20px;
+            max-width: 100%;
+        }
+
+        .offerDiv img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .offerDiv p {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .offerDiv {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .offerDiv {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="offerForm">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="price">Price</label>
+        <input type="number" id="price" name="price" required>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="image">Upload Image</label>
+        <input type="file" id="image" name="image" accept="image/*">
+
+        <button type="submit" id="submit">Submit</button>
+    </form>
+
+    <div id="offersContainer" class="row"></div>
+
+    <script src="app.js"></script>
+    <script>fetchAndDisplayOffers();</script>
+</body>
+</html>
