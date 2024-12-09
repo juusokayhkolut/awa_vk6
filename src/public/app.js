@@ -45,23 +45,22 @@ async function fetchAndDisplayOffers() {
     offersContainer.innerHTML = "";
 
     offers.forEach((offer) => {
-      const imagePath = offer.imagePath; // e.g., "public/images/filename.jpg"
       const offerHTML = `
         <div class="col s12 m6 l4 offerDiv">
-          <div class="card hoverable">
-            <div class="card-image">
-              ${imagePath ? `<img class="responsive-img" src="${imagePath}" alt="${offer.title}">` : ""}
-              <span class="card-title">${offer.title}</span>
+            <div class="card hoverable">
+                <div class="card-image">
+                    ${offer.imagePath ? `<img class="responsive-img" src="${offer.imagePath}" alt="${offer.title}">` : ""}
+                    <span class="card-title">${offer.title}</span>
+                </div>
+                <div class="card-content">
+                    <p>${offer.description}</p>
+                    <p>Price: $${offer.price}</p>
+                </div>
             </div>
-            <div class="card-content">
-              <p>${offer.description}</p>
-              <p>Price: $${offer.price}</p>
-            </div>
-          </div>
         </div>
       `;
-      offersContainer.innerHTML += offerHTML;
-    });
+      document.getElementById("offersContainer").innerHTML += offerHTML;
+    });    
   } else {
     alert("Failed to fetch offers!");
     console.error(response.error);
